@@ -4,19 +4,19 @@
 
 31 features, rapid fire
 
-**High Risk:**
+#### **High Risk:**
 
-Rad styles that might not ever make it into CSS
+Rad styles that might not ever make it into CSS, but are still cool and good to keep and eye on what is happening with them
 
-- Conditional Values
-The ability to put a little mini media query where you put a value
+- **Conditional Values**
+  - The ability to put a little mini media query where you put a value
 ```
 div {
   flex-flow: if(100vw > 500px, row, column)
 }
 ```
-- Switch
-Similar to the above, has a condition that needs to be met
+- **Switch**
+  - Similar to the above, has a condition that needs to be met
 ```
 .foo {
   grid-template-columns: switch(
@@ -26,15 +26,16 @@ Similar to the above, has a condition that needs to be met
 }
 ```
 
-- Relative units
-We already have vw and vh
-  - Line height
-  - Cap height
-  - Viewport inline
-  - Viewport block
+- **Relative units**
+  - We already have vw and vh, potential new ones
+    - Line height
+    - Cap height
+    - Viewport inline
+    - Viewport block
 
-- Houdini Layout
-Houdini brings your logic and your interesting layout, your interesting paint idea, your interesting animation, and they bring it into the engine - working in Chromium behind a flag
+
+- **Houdini Layout**
+  - Houdini brings your logic and your interesting layout, your interesting paint idea, your interesting animation, and they bring it into the engine - working in Chromium behind a flag
 ```
 .houdini-masonry {
   display: layout(masonry)
@@ -45,9 +46,8 @@ Houdini brings your logic and your interesting layout, your interesting paint id
 }
 ```
 
-- @scope
-
-Everything in CSS is global
+- **@scope**
+  - Everything in CSS is global
 ```
 @scope (.card) {
   header {
@@ -56,10 +56,12 @@ Everything in CSS is global
 }
 ```
 
-**Moderate Risk:**
+#### **Moderate Risk:**
 
-- Container Queries
-Being actively developed right now, could be supported in browser soon
+Slightly less risky
+
+- **Container Queries**
+  - Being actively developed right now, could be supported in browser soon
 
 ```
 .container-to-be-queried {
@@ -67,16 +69,16 @@ Being actively developed right now, could be supported in browser soon
 }
 ```
 
-- Leading Trim
-Chop off excess in a text box, will trip to cap height and alphabetical baseline
+- **Leading Trim**
+  - Chop off excess in a text box, will trip to cap height and alphabetical baseline
 ```
 p {
   leading-trim: both
 }
 ```
 
-- Houdini paint
-A new way to paint so we can paint new backgrounds on images, new border images, etc. API is polyfillable
+- **Houdini paint**
+  - A new way to paint so we can paint new backgrounds on images, new border images, etc. API is polyfillable
 ```
 powdered-gradient {
   background:
@@ -85,27 +87,27 @@ powdered-gradient {
   }
 ```
 
-- @scroll-timeline
-Scroll-timeline seeks to remedy all of the JavaScript solutions by providing a CSS and JavaScript API to creating scroll linked animations
+- **@scroll-timeline**
+  - Scroll-timeline seeks to remedy all of the JavaScript solutions by providing a CSS and JavaScript API to creating scroll linked animations
 ```
 @scroll-timeline scroll-fade {
   time-range: 4s
 }
 ```
 
-- Spelling & Grammar
-In the browser, you can set spellcheck and contenteditable on an element, spellcheck pseudo-selector that will underline with a squiggly
+- **Spelling & Grammar**
+  - In the browser, you can set spellcheck and contenteditable on an element, spellcheck pseudo-selector that will underline with a squiggly
 ```
 ::spelling-error {
   text-decoration: underline 1px red
 }
 ```
 
-- :target-within
-Target-within is piggybacking on the idea of :focus-within
+- **:target-within**
+  - Target-within is piggybacking on the idea of :focus-within
 
-- Nesting
-Being considered for prototpying, native nesting
+- **Nesting**
+  - Being considered for prototpying, native nesting
 ```
 code > pre {
   @media (hover) {
@@ -116,8 +118,8 @@ code > pre {
 }
 ```
 
-- Cascade layers
-We often have some many different stlyes coming into a page, there are so many origins and types, this lets us name various layers of the style stack and push styles into them
+- **Cascade layers**
+  - We often have so many different stlyes coming into a page, there are multiple origins and types, this lets us name various layers of the style stack and push styles into them
 ```
 @layer reset {
   * { box-sizing: border-box }
@@ -129,8 +131,8 @@ We often have some many different stlyes coming into a page, there are so many o
 @layer default, theme, components
 ```
 
-- Foldables
-Create styles so something looks like it is folded in half
+- **Foldables**
+  - Create styles so something looks like it is folded in half
 ```
 main {
   display: grid
@@ -139,8 +141,8 @@ main {
 }
 ```
 
-- Color level 5
-The browser can pick a colour dynamically
+- **Color level 5**
+  - The browser can pick a colour dynamically
 ```
 .color-contrast {
   color: color-contrast(
@@ -151,19 +153,18 @@ The browser can pick a colour dynamically
 }
 ```
 
-- Masonry
-
-Built on top of grid
+- **Masonry**
+  - Built on top of grid
 
 ```
 .masonry {
   display: grid
   grid-template-columns: repeat(4, 1fr)
-  grid-tempalte-rows: masonry
+  grid-template-rows: masonry
 }
 ```
 
-- Media queries level 5
+- **Media queries level 5**
 
 ```
 @media (width <= 320px) {
@@ -177,18 +178,16 @@ Built on top of grid
 
 **Low Risk:**
 
-Even more available to use right now, but might need @supports and polyfills
+Even more available to use right now, but might need @supports and polyfills, could be buggy
 
-- Color Level 4
+- **Color Level 4**
+  - hex-with-alpha
+  - functional-notation
+  - lab-and-lch
+  - color-function
 
-#hex-with-alpha
-#functional-notation
-#lab-and-lch
-#color-function
-
-- HD color
-
-Can this display do high-definition color
+- **HD color**
+  - Can this display do high-definition color
 ```
 @media (dynamic-range: high) {
   .neon-pink: {
@@ -197,7 +196,7 @@ Can this display do high-definition color
 }
 ```
 
-- Typed custom properties
+- **Typed custom properties**
 
 ```
 @property --hue {
@@ -207,9 +206,8 @@ Can this display do high-definition color
 }
 ```
 
-- Content Visibility
-
-Still has a11y considerations that are being worked through
+- **Content Visibility**
+  - Still has a11y considerations that are being worked through
 ```
 section {
   content-visibility: auto
@@ -217,8 +215,8 @@ section {
 }
 ```
 
-- Aspect Ration
-Can transition
+- **Aspect Ration**
+  - Can transition
 
 ```
 .box {
@@ -233,8 +231,8 @@ img.square {
 }
 ```
 
-- ::marker
-The free dot you get at the start of list items, there are limitations
+- **::marker**
+  - The free dot you get at the start of list items, there are limitations
 
 ```
 li::marker {
@@ -243,9 +241,9 @@ li::marker {
 }
 ```
 
-- Conic Gradients
-Can tuck them into corners, to get rid of hard lines use three colours, not just two
-https://www.conic.style/
+- **Conic Gradients**
+  - Can tuck them into corners, to get rid of hard lines use three colours, not just two
+  - https://www.conic.style/
 
 ```
 .conic-1 {
@@ -257,8 +255,8 @@ https://www.conic.style/
 }
 ```
 
-- Containment
-This is what unlocked container queries
+- **Containment**
+  - This is what unlocked container queries
 
 ```
 article {
@@ -267,7 +265,7 @@ article {
 ```
 
 - :focus-visible
-Should the focus be visible? Knows if you are using mouse or keyboard
+  - Should the focus be visible? Knows if you are using mouse or keyboard
 
 ```
 button:focus-visible {
@@ -284,8 +282,8 @@ article:focus-within {
 }
 ```
 
-- Logical properties
-Styling has historically been physical based, this allows user specific properties
+- **Logical properties**
+  - Styling has historically been physical based, this allows user specific properties
 
 ```
 p {
@@ -298,10 +296,9 @@ small {
 }
 ```
 
-- :is() and :where()
-"is" will take the first, well, it will take the most expensive specificity item in the list and make that the specificity of the whole selector in general.
-
-Whereas "where" will nullify all of these and it acts as if everything that's in there is worth zero.
+- **:is() and :where()**
+  - "is" will take the first, well, it will take the most expensive specificity item in the list and make that the specificity of the whole selector in general.
+  - Whereas "where" will nullify all of these and it acts as if everything that's in there is worth zero.
 ```
 :where(target, p) {
   color: red
@@ -312,8 +309,8 @@ Whereas "where" will nullify all of these and it acts as if everything that's in
 }
 ```
 
-- Data saver
-I want to be in data saver mode
+- **Data saver**
+  - I want to be in data saver mode
 
 ```
 @media (prefers-reduced-data: reduce) {
@@ -321,8 +318,8 @@ I want to be in data saver mode
 }
 ```
 
-- ::cue
-If you are waching a video with subtitles you are looking at this in work
+- **::cue**
+  - If you are watching a video with subtitles you are looking at this in work
 
 ```
 ::cue {
@@ -331,17 +328,17 @@ If you are waching a video with subtitles you are looking at this in work
 }
 ```
 
+
 ### Container Queries & The Future of CSS - Miriam Suzanne, Co-founder Offbird
 
 _"Our medium is not done, our medium is still going through radical changes..."_
 
-https://slides.oddbird.net/css-next/hover/
-
 - Cascade layers
 - Scoped styles
 - Container queries
-  - https://codepen.io/collection/XQrgJo
 
+[Slides](https://slides.oddbird.net/css-next/hover/)
+[Examples](https://codepen.io/collection/XQrgJo)
 
 ### The State of CSS-in-JS - Mark Dalgleish, Front-end Lead, Seek
 
@@ -354,10 +351,10 @@ https://slides.oddbird.net/css-next/hover/
   - Static extraction
 - The community is still experimenting
 - A few different libraries that are tackling the constraints in different ways
-  - Goober https://goober.js.org/
-  - Stitches https://stitches.dev/
-  - Vanilla-extract https://github.com/seek-oss/vanilla-extract
-  - Complied https://github.com/atlassian-labs/compiled
+  - [Goober](https://goober.js.org/)
+  - [Stitches](https://stitches.dev/)
+  - [Vanilla-extract](https://github.com/seek-oss/vanilla-extract)
+  - [Complied](https://github.com/atlassian-labs/compiled)
 
 
 ### CSS Aspect Ratio - Anton Ball, Front End Developer, Doist
@@ -365,16 +362,85 @@ https://slides.oddbird.net/css-next/hover/
 - Part of the sizing 4 spec, in a working draft state currently
 - Aspect ratio is the ratio between the width and height of an element
 - `aspect-ratio: auto | <ratio>`
-- support: https://caniuse.com/?search=aspect-ratio
-- https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
-- https://css-tricks.com/a-first-look-at-aspect-ratio/
+- [Support](https://caniuse.com/?search=aspect-ratio)
+- [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio)
+- [CSS-Tricks: First look at aspect ratio](https://css-tricks.com/a-first-look-at-aspect-ratio/)
 
 
 ### CSS Variables for Real Life - Matt Colman, Senior Engineer, Atlassian
 
 - CSS Variables is still a bit of a buzz word. Many of us have googled it, looked at some examples, maybe even done a tutorial, but how many of us have used CSS Variables in production?
-- https://codeburst.io/css-variables-explained-with-5-examples-84adaffaa5bd
-- https://kentcdodds.com/blog/super-simple-start-to-css-variables
-- currentColor is a CSS variable, it was the first!
+- [CSS Variables explained, with 5 examples](https://codeburst.io/css-variables-explained-with-5-examples-84adaffaa5bd)
+- [Super simple start to CSS variables](https://kentcdodds.com/blog/super-simple-start-to-css-variables)
+- `currentColor` is a CSS variable, it was the first!
+- Used CSS Variables in production in the new deployments view in Jira
 
 ### Typography superpower with variable fonts and CSS - Ananya Neogi, Frontend developer Shopify
+
+- Static fonts: multiple styles means loading multiple font files
+- Variable fonts: a single font file that behaves like multiple fonts
+  - An evolution of the font spec
+  - Have a concept called axes, they let us attribute different styles
+    - Registered axes: wdth, wght, ital, slnt, opsz
+    - Custom axes: GRAD, CASL, etc
+  - We can access these through `font-variation-settings`
+  - https://v-fonts.com/
+  - https://www.nmtype.com/
+- What are the practical uses of variable fonts?
+  - Performance benefits
+  - Better UI design
+- Dynamic typography for responsive design
+  - Leverages calc, css variables and variable fonts
+  - Set font size and line height variables as scale values
+- [Simplified fluid typograpy](https://css-tricks.com/simplified-fluid-typography/)
+- A11y improvements
+  - Optical sizing on small screens
+  - Improve contrast
+
+[Slides](https://dynamic-typography.netlify.app/?slideIndex=0&stepIndex=0)
+[Demos](https://codepen.io/collection/BNoLBG)
+
+### Understanding display - Rachel Andrew, Freelance writer of words and code Independent
+
+- [Spec](https://www.w3.org/TR/css-display-3/)
+- CSS Layout is all about boxes
+- We know that some boxes are blocks, and others are inline
+- We can change the display type of elements by changing the value of the display property
+- We can choose the correct semantic HTML element for the job, but use CSS to change how it looks
+- That property holds the key to much more than this
+- It is the foundation on which all layout is built; the core of the inbuilt CSS layout system
+- Learning Grid Layout, or Flexbox, without understanding Display, leaves you with a wobbly foundation and more questions than answers
+- The real question isn’t “Should I use Grid or Flexbox?” but instead, “How do I want these boxes to behave?
+- The block dimension is the direction that paragraphs layout in writing mode
+- Inline direction is the direction in which sentences run in writing mode
+- Well-structured HTML means you are working with the browser, rather than against it
+- For each elements, CSS generates zero or more boxes as specified by that elements display property
+  - `display: block` creates a block-level box
+  - `display: inline` creates an inline-level box
+  - `display: flex` creates a block-level box with fle children
+- Formatting content describes the behaviour of the child elements of a box
+- Display can take two values - `display: block flex`, `display: inline flex`
+- New formatting context for normal flow: `display: block flow-root`
+- Margins do not collapse through a new formatting context
+- Anonymous boxes...
+```
+p {
+  display: flex
+  justify-content: space-between
+}
+```
+- Changing the formatting context means some things no longer do what we are used to
+- The floating and positioning behaviour we are used to seeing is specified for "normal" flow, for block and inline layouts
+- Can absolutely position items in a grid layout
+```
+position: absolute
+top: 20px
+right: 100px
+```
+- The Web Platform Tests project has tests against web platform specs so user agents can check they are conforming
+- `display: none` - do not generate a box for the element, or for the children of the element
+- Aside from the none value, which also affects the aural and speech output, and interactivity of an element and its descendants, the display property only affect visual layout
+- `display: contents` - like none, but only the box it is applied to is removed, the children remain
+- Resources:
+  - [MDN: The Visual Formatting Model](https://developer.mozilla.org/en-US/docs/Web/CSS/Visual_formatting_model)
+  - [Digging Into The Display Property: Box Generation](https://www.smashingmagazine.com/2019/05/display-box-generation/)
