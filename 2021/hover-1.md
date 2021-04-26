@@ -264,7 +264,7 @@ article {
 }
 ```
 
-- :focus-visible
+- **:focus-visible**
   - Should the focus be visible? Knows if you are using mouse or keyboard
 
 ```
