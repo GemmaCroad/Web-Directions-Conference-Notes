@@ -12,7 +12,7 @@
     - Bodily-kinesthetic, dealing with the ability to control our bodies in a skillful way
     - Musical, interpersonal, and extrapersonal, all pretty self-explanatory
 - But where exactly does CSS fit in all of this?
-  - Some companies give the CSS tasks into the front-end developers, which lately have been dealing mostly with JS-heavy stuff
+  - Some companies give the CSS tasks to the front-end developers, which lately have been dealing mostly with JS-heavy stuff
   - Other companies lure programmers in by boldly claiming: "Our designers make the CSS." At the end of the day, neither group seems to be enjoying it
 - Is CSS a design task?
 - It results in a visual representation, but looks an awful lot more like coding, and there are two key differences: graphic design very specifically instructs the final result, while CSS only provides suggestions for the browser, which has the final word in how things are represented.
