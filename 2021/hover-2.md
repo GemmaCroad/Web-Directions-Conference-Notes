@@ -35,8 +35,8 @@
 - Coding boot camps and courses everywhere are brushing over CSS to get people as fast as possible to the JS heavy part, as that's where most of the demand from the industry is
 - Practice expanding your CSS vocabulary
 - Expand your social sphere to include more CSS people
-- You shouldn't feel obliged to learn CSS - ou might still find it out of your scope, lack interest, or simply cannot wrap your mind around its linguistic nature
-- Allow people to shine in their trade
+- You shouldn't feel obliged to learn CSS - you might still find it out of your scope, lack interest in it, or simply cannot wrap your mind around its linguistic nature
+- We should allow people to shine in their trade
 - Why are we forcing designers and developers to do CSS instead of seeing the value of a third role, and pushing to integrate somebody else into the team?
 - Celebrate diversity!
 
@@ -45,7 +45,7 @@
 
 - The internet wasn't created for regular websites like most of it is today
 - One of the basic things that we really use the most, reading content, isn't implemented in a great way
-- Creating a multilanguage website, until now, required different style sheets for the same website, and lots of duplication
+- Creating a multi-language website, until now, required different style sheets for the same website, and lots of duplication
 - Axis of the web
   - Two axis
     - Block axis: Main flow of the site (top to bottom)
@@ -116,7 +116,7 @@ transform-origin-block
 - `@media (prefers-contrast: more)` - not available in browsers yet, in Safari preview it maps to the "increase contrast" a11y option in MacOS - what does less contrast look like, dim the blues?
 - `@media (forced-colors: active)` - overwrites everything depending on the users personal preference
 - `@media (color-gamut: p3)` - lets you detect if your site is being used on a screen with a wider gamut, therefore using colours outside of the sRGB colour space
-- `@media (prefers-reduced-transparecnet: reduce)` - used to tone down transparecny
+- `@media (prefers-reduced-transparecnet: reduce)` - used to tone down transparency
 - `@media (light-level: washed)` - built in light sensors could detect light levels in operating systems
 - `@media (environment-blending: subtractive)` - how the screen is blended with the environment
 - `@custom-media` we can improve our CSS by only defining a media query once and using it everywhere
@@ -311,7 +311,25 @@ try {
 
 ### How To Draw, With CSS - Michal Porag, Frontend Developer Outbrain
 
+- [Crazy CSS Landscape](https://codepen.io/ivorjetski/pen/xxGYWQG)
+- [Single div creations](https://a.singlediv.com/) by Lrynn Fisher
+- [Diana Smith](https://diana-adrianne.com/)
+- Drawing is a form of art that is really easy to start with, and drawing with CSS is just as easy
+- Dribble is great for inspiration
+- Reach out to the designer and ask if you can copy their image, the best form of flattery is imitation after all - always provide a credit when you use an image created by someone else
+- How do you get started?
+  - The common use of border-radius is to convert squares to circles by setting border-radius to 50%
+  - Another common use is to change the values of every corner separately
+  - Use relative units to make sure the image displays well on any screen
+    - lynnandtonic.com/archive/2019/
+  - Conic gradients, work in all modern browsers
+    - Box shadow
+- Walk through of creating a [single div kite](https://codepen.io/michalporag/pen/oNBzZqL) using pure CSS
 
+[Codepen](https://codepen.io/michalporag)
 
 
 ### A special Webbed Briefs - Heydon Pickering, Designer, Developer HeydonWorks
+
+- There aren't really any words for the video from Heydon apart from keep checking the link below to watch it when it gets uploaded!
+- https://briefs.video/
