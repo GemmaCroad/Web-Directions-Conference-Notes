@@ -128,8 +128,6 @@
 [Slides](http://bit.ly/2Zc6TDf)
 
 
-### Deep dive into ARIA - Nicolas Steenhout, Independent accessibility consultant
-
 ### Understanding Live Regions - Ugi Kutluoglu, Accessibility Lead Carbon Health
 
 - Primarily intended for screenreader users, live regions are a powerful tool that make announcements every time content changes within a designated part of a webpage
@@ -201,10 +199,100 @@
 
 ### What You See Is What I Get - Léonie Watson, Director and co-founder Tetralogical
 
+- When we look at platforms and screen reader use, we discover that Windows is overwhelmingly the most popular operating system used
+- WebAIM Screen Reader User Survey
+- About 6.5% of people are using Mac OS with a screen reader, and about 1% are using Linux distributions.
+- The rest can be accounted for by people who are using screen readers on connected TVs, book readers, and console
+- The same survey also tells us the number of people who do not have a disability using a screen reader are four times more likely to be using a Mac than an actual screen reader user is
+- On Windows, we find that Jaws takes up about 54% of the market
+- NVDA a free open source screen reader that now accounts for just over 30%, about 31% of the total market
+- Things get a lot simpler with Mac OS because there is only one screen reader, VoiceOver
+- There are three important component parts to a screen reader:
+  - The screen reader itself, a piece of software, it's the thing that has all the instructions, the commands, the configurations and the settings
+    - Keyboard shortcuts
+  - Text to speech engine (TTS engine)
+    - Can change language
+    - Pick punctuation settings
+- Braille displays
+  - These are electronic devices that feature a number of braille dots that can be raised and lowered to form lines of braille characters
+- Where do screen readers get their information from?
+  - MD-DOS had access to the text buffer and they just converted it into synthetic speech
+  - Along came the graphical user interface, a Windows 3 the original MAC OS or OS2 for example, and things got massively complicated for screen readers
+  - What they ended up doing for a time was intercepting signals on the way to the graphics engine and using vast numbers of heuristics to try and make sense of it
+  - Salvation came along in the late nineties in the form of platform accessibility APIs
+  - The information consists of semantics
+    - What's on screen
+    - What is it?
+    - Why is it there?
+  - Role
+  - Name
+  - State
+    - Indicates the element's current condition, if it has one - `aria-pressed="true"`
+  - Description
+    - A short hint or explanatory note designed to help the user complete an action or use the control
+- The fine art of good screen reader accessibility is making available the information that everybody else has visually, in non visual ways
+- Screen readers have different modes
+  - Default is virtual or browse mode, intercept all the keystrokes that get hit and it maps them to its own keyboard shortcuts
+- Screen readers in partnership with the browser are very good at recognizing this change of context
+  - When a screen reader focuses on something like a form field that expects text or characters to be entered, it will switch modes automatically, and it will stop intercepting the keystrokes and instead let them pass straight back through to the browser
+- Applications mode
+    - There are a number of ARIA roles that will trigger this same behaviour and call it applications mode forms mode, focus mode, essentially it's all the same thing
+- Screen readers are almost entirely dependent on information obtained from the browser based on the code that the browser renders
+- It really can't be emphasised enough, just how important it is that our HTML has all the semantics that it needs
 
 
 ### SpeakingNaturally on Dragons and other alternative navigations - Kate Kalcevich, Head of Services Fable
 
+- Dragon switches and controlling a computer with your eyes...
+- Any sufficiently advanced technology does appear to be like magic, but these are actually everyday tools that people use to access the internet, to do their banking, their shopping to learn, to share things on social, everything else that people do on the internet
+- Assistive technology is an umbrella term for any type of assistive or adaptive device, or even a rehabilitated device that people with disabilities use
+- Dragon Naturally Speaking, Dragon for short, it's speech recognition software that works on Windows or Mac
+- Can recognise commands to operate a computer
+- Can be used to read the content of a document, does text-to-speech like a screen reader does
+- Kat Holmes who wrote the book Mismatch, talks about how barriers are created when we cause a mismatch between people's needs and the things that we're designing
+  - She says _"we need to seek out the perspective of people who are, or risk being, the most excluded by a solution..."_
+
+There were then lots of demos of people using different types of assistive technology, super interesting.
 
 
 ### Intro to Cross Screen Reader Testing - Weston Thayer, Founder Assistiv Labs
+
+- It often causes confusion and most people think testing with screen readers is a requirement for WCAG compliance - this is not true
+- We an fully test WCAG compliance without ever opening a screen reader
+- Accessibility testing goes beyond WCAG compliance
+- Cross-screen reader testing is all about trying to find and eliminate as many potential barriers as possible
+- We should want our code to be compatible with a variety of screen readers and other assistive technologies - this way it can be used by as many people as possible
+- While there's a long history of browsers sharing their user agent string freely, whether or not someone is using a screen reader and which one they use is pretty sensitive information
+- We could use it as a proxy to whether or not they have a disability, and that's just not something that should be exposed with every HTTP request
+- [WebAIM Screen Reader User survey](https://webaim.org/projects/screenreadersurvey9/)
+- What are some of the differences between popular screen readers?
+  - The biggest split is whether it's a mobile or desktop screen reader
+  - Mobile primarily uses swipes, taps, single and multitask gestures, as well as clever use of the hardware buttons, like the volume up, down, and touch to explore where you can drag your finger around the screen to read what's underneath it
+  - iOS, VoiceOver, and Android TalkBack work basically the same way
+  - Laptop and desktop screen readers all make incredibly extensive use of keyboard shortcuts
+    - Those with a browse mode by default, and those without
+    - Browse mode, also known as virtual mode is conceptually very similar to how mobile screen readers work, but instead of intercepting all touch input, screen readers in browse mode, intercept all keyboard input
+    - Browse mode screen readers have a second mode called forms or focus mode, which does send keyboard input through to the browser
+    - They usually play a sound when switching between modes
+  - Each screen reader sounds a bit different, this is because each one uses a different default TTS or text to speech engine and some sound more robotic than others
+  - [Léonie Watson: Notes on synthetic speech](https://tink.uk/notes-on-synthetic-speech/)
+  - To understand why VoiceOver and NVDA are different we need to understand that the screen reader rendering UX is constantly evolving and screen readers actually compete with one another based on that rendering UX
+  - This is hugely different to web browsers, the web platform is also constantly evolving, but there are extensive specifications from the W3C about how HTML and CSS should be visually rendered that each browser conforms to
+  - Is this lack of consistency a problem?
+    - Screen reader heuristics can make mistakes, as web developers that can be frustrating, but they will usually prioritise their users needs
+  - Unlike browsers, screen readers have different interaction models
+- Screen readers are complex and have a steep learning curve
+- Common things that trip devs up:
+  - Focus syncing, every screen reader lets you navigate to non-interactive elements like headings and paragraphs through the way of a virtual cursor
+    - The virtual cursor focuses different elements on your page, but this is different from browser focus or a document.active element
+    - Some screen readers sync the browser focus with the virtual cursor when they can, others don't
+    - NVDA used to keep focus synced, but recently turned this off because of performance issues that arise waiting for the browser to finish moving it's focus
+    - IOS VoiceOver has flip-flopped several times before settling on not syncing focus in iOS 15
+    - This is most often noticed with skip links that are visually hidden until focused.
+  - Configured screen reader settings
+    - Screen readers are incredibly configurable and have a setting for pretty much everything
+    - It's easy to change a setting for some testing, and then completely forget that you changed it when you come back to test weeks later
+  - Some browsers like Chrome and Firefox do not construct their internal accessibility trees until a screen reader or some other assistive technology connects them via the operating system accessibility APIs
+    - This is for performance, the browser accessibility tree needs to be maintained alongside the DOM
+    - It's always a good idea to fire up the screen reader before the browser, which most, most real world users would do anyway
+ - Useful site, [Accessibility Support, Will your code work with assistive technologies?](https://a11ysupport.io/)
